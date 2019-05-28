@@ -101,12 +101,18 @@ function imperativeLengths(elements){
 	return lengths;
 }
 
-console.log(imperativeLengths(states));
+//console.log(imperativeLengths(states));
 
 //length: Functional solution
 function functionalLengths(elements) {
-	return elements.reduce((lengths, element) => {lengths[element] = element.length;
-																								return lengths}, {});
+	return elements.reduce((lengths, element) => {lengths[element] = element.length; return lengths}, {});
 }
 
 console.log(functionalLengths(states));
+
+//product of the elements of an array
+function functionalProduct(elements){
+	return elements.reduce((product, n) => {return product *= n;});
+}
+
+console.log(functionalProduct(numbers));
