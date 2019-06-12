@@ -5,8 +5,14 @@ let Phrase = require("mhartl-palindrome");
 
 let text = fs.readFileSync("phrases.txt", "utf-8");
 text.split("\n").forEach(function(line) {
-	let phrase = new Phrase(line);
-	if(phrase.palindrome()) {
-		console.log("palindrome detected;", line);
-	}
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()) {
+    console.log("palindrome detected:", line);
+    fs.appendFile("/home/anna_foerster/repos/js_tutorial/palindromes.txt", `${line}\n`, function(err){
+    	if(err){
+    		return console.log(err);
+    	}
+    });
+
+  }
 });
